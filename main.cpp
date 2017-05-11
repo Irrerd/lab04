@@ -54,7 +54,6 @@ void print_in_hex(const void* data, size_t size){
     }
 }
 
-
 struct Student{
     char Name[17];
     uint16_t Year;
@@ -64,7 +63,6 @@ struct Student{
     Student* Prefect;
 };
 
-
 int
 main() {
     uint8_t z = 106;
@@ -73,7 +71,6 @@ main() {
 
     int l = 694536462;
     print_in_hex(&l, sizeof(l));
-
 
     Student s[3];
     strcpy(s[0].Name, "Olga");
@@ -102,7 +99,15 @@ main() {
     print_in_hex(&s[0], sizeof(s[0]));
 
 
-
+    char path[64], message[48];
+    const char* greeting = "Enter path";
+    fgets ( path, sizeof(path), stdin );
+    char * strchr( const char * greeting, int *,  <, >, ?  |);
+    strcpy ( message, greeting );
+    strcat( message, ",");
+    strcat( message, path );
+    strcat( message, "!");
+    puts ( message );
 
     return 0;
 
