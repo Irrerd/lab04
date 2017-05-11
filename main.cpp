@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -53,14 +54,54 @@ void print_in_hex(const void* data, size_t size){
     }
 }
 
+
+struct Student{
+    char Name[17];
+    uint16_t Year;
+    double Middlemark;
+    bool Sex;
+    int Course;
+    Student* Prefect;
+};
+
+
 int
 main() {
     uint8_t z = 106;
     print_byte(z);
     cout<<'\n';
 
-    int l = 69;
+    int l = 694536462;
     print_in_hex(&l, sizeof(l));
+
+
+    Student s[3];
+    strcpy(s[0].Name, "Olga");
+    s[0].Year = 2016;
+    s[0].Middlemark = 4.4;
+    s[0].Sex = 0;
+    s[0].Course = 1;
+    s[0].Prefect = nullptr;
+    strcpy(s[1].Name, "Anna");
+    s[1].Year = 2016;
+    s[1].Middlemark = 3.8;
+    s[1].Sex = 0;
+    s[1].Course = 1;
+    s[1].Prefect = &s[0];
+    strcpy(s[2].Name, "Serega");
+    s[2].Year = 2016;
+    s[2].Middlemark = 0.4;
+    s[2].Sex = 1;
+    s[2].Course = 1;
+    s[2].Prefect = &s[0];
+
+    cout<<"\naddress m: "<<&s<<"\nsize m:"<<sizeof(s)<<"\naddress 1:"<<&s[0]<<"\nsize 1:"
+            <<sizeof(s[0])<<"\naddress 2:"<<&s[1]<<"\nsize 2:"
+            <<sizeof(s[1])<<"\naddress 3:"<<&s[2]<<"\nsize 4:"
+            <<sizeof(s[2])<<"\ni:";
+    print_in_hex(&s[0], sizeof(s[0]));
+
+
 
 
     return 0;
